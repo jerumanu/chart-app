@@ -1,4 +1,4 @@
-#!/home/jeru/Desktop/new/chat app/virtual/bin/python3
+#!/home/jeru/Desktop/new/chat/virtual/bin/python3
 # When the django-admin.py deprecation ends, remove this script.
 import warnings
 

@@ -1,6 +1,4 @@
-#!/bin/sh
-'''exec' "/home/jeru/Desktop/new/chat app/virtual/bin/python3" "$0" "$@"
-' '''
+#!/home/jeru/Desktop/new/chat/virtual/bin/python3
 # -*- coding: utf-8 -*-
 import re
 import sys
