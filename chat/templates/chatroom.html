@@ -5,12 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <title>CHAT <APPlet></APPlet></title>
+    <title>CHAT APP</title>
 </head>
 
-<body>
+<body >
     <div class="container">
-
+        <div class="card " style="background-color: gray;">
         <div class="row d-flex justify-content-center">
             <div class="col-md-6">
                 <form action="">
@@ -28,9 +28,11 @@
             </div>
         </div>
     </div>
-
+    </div>
+    <!-- {{request.user.username|json_script:"user_username"}} -->
     {{ room_name|json_script:"room-name" }}
     <script>
+   
         const roomName = JSON.parse(document.getElementById('room-name').textContent);
 
         const chatSocket = new WebSocket(
@@ -43,7 +45,7 @@
 
         chatSocket.onmessage = function(e) {
             const data = JSON.parse(e.data);
-            document.querySelector('#chat-log').value += (data.message + '\n');
+            document.querySelector('#chat-log').value += ( ':' + data.message + '\n');
         };
 
         chatSocket.onclose = function(e) {
@@ -61,7 +63,8 @@
             const messageInputDom = document.querySelector('#chat-message-input');
             const message = messageInputDom.value;
             chatSocket.send(JSON.stringify({
-                'message': message
+                'message': message,
+                
             }));
             messageInputDom.value = '';
         };
